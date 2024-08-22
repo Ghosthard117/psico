@@ -25,10 +25,10 @@ export default async function Footer() {
 
   return (
     <footer
-      className="flex flex-col items-center justify-between gap-6 px-8 py-7 bg-gray-10 text-white-100"
+      className="flex flex-col items-center justify-between md:gap-6 gap-12 px-8 py-7 md:py-16 bg-gray-10 text-white-100"
     >
 
-      <div className="flex flex-col md:flex-row max-w-6xl w-full justify-between my-4">
+      <div className="flex flex-col md:flex-row max-w-6xl w-full justify-between gap-8">
         <div className="flex flex-col gap-3">
           <Link
             href="/"
@@ -56,7 +56,7 @@ export default async function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h2 className="font-bold text-white-100 text-base">Links</h2>
+          <h2 className="font-bold text-base">Links</h2>
           {settings.data.navigation.map(item => (
             <PrismicNextLink
               key={item.label}
@@ -69,13 +69,13 @@ export default async function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h2 className="font-bold text-white-100 text-base" id="contacto">Contacto</h2>
+          <h2 className="font-bold text-base" id="contacto">Contacto</h2>
           {settings.data.contact.map((item, index) => (
-            <p className="text-sm text-gray-90" key={index} >
+            <div className="text-sm text-gray-90" key={index} >
               <PrismicRichText
                 field={item.item}
               />
-            </p>
+            </div>
           ))}
         </div>
       </div>
