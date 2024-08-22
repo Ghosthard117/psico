@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lato, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
 
-const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lato",
+  weight: ["400", "700"]
+});
+
+const monstserratAlternates = Montserrat_Alternates({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat-alternates",
+  weight: ["400", "600"]
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={clsx(lato.variable,  monstserratAlternates.variable)}
+    >
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
