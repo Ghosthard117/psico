@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Lato, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -30,10 +32,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx(lato.variable,  monstserratAlternates.variable)}
+      className={clsx(lato.variable, monstserratAlternates.variable)}
     >
       <body>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
