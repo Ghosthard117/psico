@@ -8,4 +8,5 @@ export const components = {
   rich_text: dynamic(() => import("./RichText")),
   services: dynamic(() => import("./Services")),
   statistics: dynamic(() => import("./Statistics")),
+  team: dynamic(() => import("./Team")),
 };

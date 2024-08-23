@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Lato, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
@@ -29,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={clsx(lato.variable, montserratAlternates.variable)}
     >
-      <body>
+      <body className="bg-white-10">
         <Header />
         {children}
         <Footer />

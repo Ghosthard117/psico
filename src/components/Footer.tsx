@@ -43,7 +43,7 @@ export default async function Footer() {
             {settings.data.social_media.map((item, index) => (
               <div
                 key={index}
-                className="flex align-center justify-center rounded-full text-white-100 bg-gray-30 p-4"
+                className="flex align-center justify-center rounded-full text-white-100 bg-gray-30 p-4 hover:text-primary-60"
               >
                 <PrismicNextLink
                   field={item.icon_link}
@@ -68,8 +68,8 @@ export default async function Footer() {
           ))}
         </div>
 
-        <div className="contact flex flex-col gap-3">
-          <h2 className="font-bold text-base" id="contacto">Contacto</h2>
+        <div className="flex flex-col gap-3" id="contact">
+          <h2 className="font-bold text-base">Contacto</h2>
           {settings.data.contact.map(item => (
             <PrismicRichText
               field={item.item}
@@ -102,22 +102,3 @@ export default async function Footer() {
     </footer>
   )
 }
-
-{/* <Link href="/">
-        <span className="text-primary-50">Psicomente</span>
-      </Link> */}
-
-{/* <nav aria-label="Footer">
-        <ul className="flex gap-6">
-          {settings.data.navigation.map(item => (
-            <li key={item.label}>
-              <PrismicNextLink
-                field={item.link}
-                className="inline-flex min-h-11 items-center"
-              >
-                {item.label}
-              </PrismicNextLink>
-            </li>
-          ))}
-        </ul>
-      </nav> */}

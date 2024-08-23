@@ -29,6 +29,7 @@ const config: Config = {
         90: "#e3e3e3",
       },
       white: {
+        10: "#f9f6ee",
         100: '#fafafa',
       },
       black: {

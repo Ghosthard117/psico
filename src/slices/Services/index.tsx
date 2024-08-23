@@ -37,12 +37,12 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
           components={components}
         />
 
-        <div className="mt-auto mx-auto grid gap-3 md:grid-cols-3 md:gap-8">
+        <div className="md:mt-10 mt-4 grid gap-3 md:grid-cols-3 md:gap-8">
           {slice.primary.services.map(item => (
             <div
               key={asText(item.service)}
             >
-              <div className="relative rounded-xl md:rounded-3xl overflow-hidden md:max-w-[590px] md:h-[290px] max-h-[240px]">
+              <div className="relative rounded-xl md:rounded-3xl overflow-hidden md:h-[290px] max-h-[240px]">
                 <PrismicNextImage
                   field={item.image}
                   className="rounded-xl md:rounded-3xl object-cover w-full h-full"
