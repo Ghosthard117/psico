@@ -36,7 +36,7 @@ export default async function Footer() {
           >
             {settings.data.site_title}
           </Link>
-          <p className="text-gray-90 text-sm">
+          <p className="text-gray-90 text-sm font-montserratAlternates">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </p>
           <div className="flex flex-row justify-around">
@@ -61,7 +61,7 @@ export default async function Footer() {
             <PrismicNextLink
               key={item.label}
               field={item.link}
-              className="text-sm text-gray-90 hover:text-primary-60"
+              className="text-sm text-gray-90 hover:text-primary-60 font-montserratAlternates"
             >
               {item.label}
             </PrismicNextLink>
@@ -70,12 +70,19 @@ export default async function Footer() {
 
         <div className="flex flex-col gap-3">
           <h2 className="font-bold text-base" id="contacto">Contacto</h2>
-          {settings.data.contact.map((item, index) => (
-            <div className="text-sm text-gray-90" key={index} >
-              <PrismicRichText
-                field={item.item}
-              />
-            </div>
+          {settings.data.contact.map(item => (
+            <PrismicRichText
+              field={item.item}
+              components={{
+                paragraph: ({ children }) => (
+                  <p
+                    className="font-montserratAlternates text-sm text-gray-90"
+                  >
+                    {children}
+                  </p>
+                )
+              }}
+            />
           ))}
         </div>
       </div>
