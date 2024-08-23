@@ -68,7 +68,7 @@ export default async function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="contact flex flex-col gap-3">
           <h2 className="font-bold text-base" id="contacto">Contacto</h2>
           {settings.data.contact.map(item => (
             <PrismicRichText

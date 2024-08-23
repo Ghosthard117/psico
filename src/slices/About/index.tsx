@@ -44,7 +44,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <div
-        className="flex flex-col md:flex-row max-w-6xl w-full justify-between gap-8"
+        className="about flex flex-col md:flex-row max-w-6xl w-full justify-between gap-8"
       >
         <div className="flex flex-col justify-between max-w-4xl w-full gap-14">
           <div
