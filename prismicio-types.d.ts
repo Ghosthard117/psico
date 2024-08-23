@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | ServicesSlice
   | AboutSlice
   | StatisticsSlice
   | HeroSlice
@@ -487,6 +488,88 @@ export type RichTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Services → Default → Primary → Services*
+ */
+export interface ServicesSliceDefaultPrimaryServicesItem {
+  /**
+   * Service field in *Services → Default → Primary → Services*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.services[].service
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service: prismic.TitleField;
+
+  /**
+   * Image field in *Services → Default → Primary → Services*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.services[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Services → Default → Primary*
+ */
+export interface ServicesSliceDefaultPrimary {
+  /**
+   * Heading field in *Services → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Services field in *Services → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.default.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  services: prismic.GroupField<
+    Simplify<ServicesSliceDefaultPrimaryServicesItem>
+  >;
+}
+
+/**
+ * Default variation for Services Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Services*
+ */
+type ServicesSliceVariation = ServicesSliceDefault;
+
+/**
+ * Services Shared Slice
+ *
+ * - **API ID**: `services`
+ * - **Description**: Services
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSlice = prismic.SharedSlice<
+  "services",
+  ServicesSliceVariation
+>;
+
+/**
  * Item in *Statistics → Default → Primary →  Statistics*
  */
 export interface StatisticsSliceDefaultPrimaryStatisticsItem {
@@ -591,6 +674,11 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      ServicesSlice,
+      ServicesSliceDefaultPrimaryServicesItem,
+      ServicesSliceDefaultPrimary,
+      ServicesSliceVariation,
+      ServicesSliceDefault,
       StatisticsSlice,
       StatisticsSliceDefaultPrimaryStatisticsItem,
       StatisticsSliceDefaultPrimary,
