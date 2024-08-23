@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["var(--font-lato)"],
-        display: ["var(--font-montserrat-alternates)"],
+        lato: ["var(--font-lato)"],
+        montserratAlternates: ["--font-montserrat-alternates"],
       }
     },
     colors: {

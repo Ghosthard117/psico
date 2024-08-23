@@ -32,7 +32,7 @@ export default async function Footer() {
         <div className="flex flex-col gap-3">
           <Link
             href="/"
-            className="font-bold text-3xl"
+            className="font-bold text-3xl font-lato"
           >
             {settings.data.site_title}
           </Link>

@@ -22,7 +22,7 @@ export default function Navbar({ settings }: NavbarProps) {
       aria-label="Main"
     >
       <div
-        className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-body text-gray-10 md:flex-row md:items-center"
+        className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-lato text-gray-10 md:flex-row md:items-center"
       >
         <div
           className="flex items-center justify-between"

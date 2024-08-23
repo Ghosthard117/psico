@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lato, Montserrat_Alternates } from "next/font/google";
+import { Lato, Montserrat_Alternates } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import Header from "@/components/Header";
@@ -12,11 +12,11 @@ const lato = Lato({
   weight: ["400", "700"]
 });
 
-const monstserratAlternates = Montserrat_Alternates({
+const montserratAlternates = Montserrat_Alternates({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-montserrat-alternates",
-  weight: ["400", "600"]
+  weight: ["100", "200", "400", "600"]
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx(lato.variable, monstserratAlternates.variable)}
+      className={clsx(lato.variable, montserratAlternates.variable)}
     >
       <body>
         <Header />
