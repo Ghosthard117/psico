@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type PageDocumentDataSlicesSlice =
+  | LocationSlice
   | TeamSlice
   | ServicesSlice
   | AboutSlice
@@ -444,6 +445,51 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Location → Default → Primary*
+ */
+export interface LocationSliceDefaultPrimary {
+  /**
+   * Heading field in *Location → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Default variation for Location Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LocationSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Location*
+ */
+type LocationSliceVariation = LocationSliceDefault;
+
+/**
+ * Location Shared Slice
+ *
+ * - **API ID**: `location`
+ * - **Description**: Location
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationSlice = prismic.SharedSlice<
+  "location",
+  LocationSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -758,6 +804,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      LocationSlice,
+      LocationSliceDefaultPrimary,
+      LocationSliceVariation,
+      LocationSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
