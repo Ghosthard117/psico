@@ -3,6 +3,7 @@ import "./globals.css";
 import clsx from "clsx";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LenisScroll from "@/scroll/LenisScroll";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
       className={clsx(lato.variable, montserratAlternates.variable)}
     >
       <body className="bg-white-10">
+        <LenisScroll />
         <Header />
         {children}
         <Footer />
