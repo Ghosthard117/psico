@@ -26,14 +26,14 @@ export default async function Footer() {
 
   return (
     <footer
-      className="flex flex-col items-center justify-between md:gap-6 gap-12 px-8 py-7 md:py-16 bg-gray-10 text-white-100"
+      className="flex flex-col items-center justify-between md:gap-6 gap-12 px-8 py-7 md:py-16 bg-gray-10 font-lato text-white-100"
     >
 
       <div className="flex flex-col md:flex-row max-w-6xl w-full justify-between gap-8">
         <div className="flex flex-col gap-3">
           <Link
             href="/"
-            className="font-bold text-3xl font-lato"
+            className="font-bold text-3xl"
           >
             {settings.data.site_title}
           </Link>
@@ -44,7 +44,7 @@ export default async function Footer() {
             {settings.data.social_media.map((item, index) => (
               <div
                 key={index}
-                className="flex align-center justify-center rounded-full text-white-100 bg-gray-30 p-4 hover:text-primary-60"
+                className="flex align-center justify-center rounded-full bg-gray-30 p-4 hover:text-primary-60"
               >
                 <PrismicNextLink
                   field={item.icon_link}

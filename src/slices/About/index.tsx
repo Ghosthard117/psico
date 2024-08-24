@@ -10,13 +10,15 @@ const components: JSXMapSerializer = {
     <Heading
       as="h2"
       size="lg"
-      className="text-transform: capitalize first-letter:text-primary-50 text-balance"
+      className=""
     >
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <h3 className="text-xl md:text-2xl font-semibold text-transform: capitalize">
+    <h3
+      className="text-xl md:text-2xl font-semibold"
+    >
       {children}
     </h3>
   ),
@@ -89,7 +91,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         >
           <PrismicNextImage
             field={slice.primary.image}
-            className="rounded-xl"
+            className="rounded-3xl md:rounded-[32px] object-cover"
           />
         </div>
       </div>

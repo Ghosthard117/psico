@@ -1,12 +1,17 @@
 import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
 import { asText, Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className="font-bold text-2xl md:text-4xl text-primary-50 transform: capitalize text-center">
+    <Heading
+      as="h2"
+      size="md"
+      className="text-primary-50 text-center"
+    >
       {children}
-    </h2>
+    </Heading>
   ),
   paragraph: ({ children }) => (
     <p className="text-md font-montserratAlternates text-gray-50 transform: capitalize text-center">
@@ -27,9 +32,9 @@ const Statistics = ({ slice }: StatisticsProps): JSX.Element => {
       data-slice-variation={slice.variation}
 
     >
-      <div className="flex md:flex-row flex-col justify-between md:justify-around items-center bg-gray-10 md:py-14 md:px-12 rounded-2xl md:rounded-[32px] gap-5 py-8 mx-16 md:mx-0">
+      <div className="flex md:flex-row flex-col justify-between md:justify-around items-center bg-gray-10 md:py-14 md:px-12 rounded-3xl md:rounded-[32px] gap-5 py-8 max-w-2xl md:max-w-full">
         {slice.primary.statistics.map((item) => (
-          <div key={asText(item.heading)} className="flex items-center justify-center gap-1 flex-col max-w-min">
+          <div key={asText(item.heading)} className="flex items-center justify-center gap-1 flex-col max-w-sm">
             <PrismicRichText
               field={item.heading}
               components={components}

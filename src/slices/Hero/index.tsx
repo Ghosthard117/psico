@@ -9,14 +9,14 @@ const components: JSXMapSerializer = {
     <Heading
       as="h2"
       size="xl"
-      className="text-transform: capitalize first-letter:text-primary-50"
+      className=""
     >
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
     <p
-      className="font-montserratAlternates font-normal max-w-md text-lg text-pretty text-gray-30 first-letter:text-primary-50"
+      className="font-montserratAlternates font-normal max-w-lg text-lg text-pretty text-gray-30 first-letter:text-primary-50"
     >
       {children}
     </p>
@@ -54,7 +54,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         >
           <PrismicNextImage
             field={slice.primary.image}
-            className="rounded-xl"
+            className="rounded-3xl md:rounded-[32px] object-cover"
           />
         </div>
 

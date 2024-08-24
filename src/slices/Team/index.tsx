@@ -9,7 +9,7 @@ const components: JSXMapSerializer = {
     <Heading
       as="h2"
       size="lg"
-      className="text-transform: capitalize first-letter:text-primary-50 text-center"
+      className="text-center"
     >
       {children}
     </Heading>

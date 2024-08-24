@@ -9,7 +9,7 @@ const components: JSXMapSerializer = {
     <Heading
       as="h2"
       size="lg"
-      className="text-transform: capitalize first-letter:text-primary-50 text-center"
+      className="text-center"
     >
       {children}
     </Heading>
@@ -42,7 +42,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
             <div
               key={asText(item.service)}
             >
-              <div className="relative rounded-xl md:rounded-3xl overflow-hidden md:h-[290px] max-h-[240px]">
+              <div className="relative rounded-xl md:rounded-3xl overflow-hidden max-h-[240px]">
                 <PrismicNextImage
                   field={item.image}
                   className="rounded-xl md:rounded-3xl object-cover w-full h-full"

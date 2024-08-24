@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { usePathname } from "next/navigation"
 import { asLink, Content } from "@prismicio/client"
 import { PrismicNextLink } from "@prismicio/next"
@@ -15,6 +15,8 @@ type NavbarProps = {
 export default function Navbar({ settings }: NavbarProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+
+  const memoizedSettings = useMemo(() => settings, [settings])
 
   return (
     <nav
@@ -32,7 +34,7 @@ export default function Navbar({ settings }: NavbarProps) {
             className="z-50 text-primary-50 font-bold text-xl"
             onClick={() => setOpen(false)}
           >
-            {settings.data.site_title}
+            {memoizedSettings.data.site_title}
           </Link>
           <button
             type="button"
@@ -48,13 +50,13 @@ export default function Navbar({ settings }: NavbarProps) {
         {/* Mobile Nav */}
         <div
           className={clsx(
-            "ga-4 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end bg-primary-50 pr-4 pt-14 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden",
+            "gap-3 fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-end bg-primary-50 pr-4 pt-14 transition-transform duration-300 ease-in-out motion-reduce:transition-none md:hidden text-white-100",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
           <button
             type="button"
-            className="fixed right-4 top-4 mb-4 block p-2 text-3xl text-white-100 md:hidden"
+            className="fixed right-4 top-4 mb-4 block p-2 text-3xl md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
@@ -63,12 +65,12 @@ export default function Navbar({ settings }: NavbarProps) {
           </button>
 
           <div className="grid justify-items-end gap-8">
-            {settings.data.navigation.map(item => {
+            {memoizedSettings.data.navigation.map(item => {
               return (
                 <PrismicNextLink
                   key={item.label}
                   field={item.link}
-                  className="block px-3 text-3xl first:mt-8 text-white-100"
+                  className="block px-3 text-3xl first:mt-8"
                   onClick={() => setOpen(false)}
                   aria-current={
                     pathname.includes(asLink(item.link) as string)
@@ -85,7 +87,7 @@ export default function Navbar({ settings }: NavbarProps) {
 
         {/* Desktop Nav */}
         <ul className="hidden gap-6 md:flex">
-          {settings.data.navigation.map(item => {
+          {memoizedSettings.data.navigation.map(item => {
             return (
               <li key={item.label}>
                 <PrismicNextLink
