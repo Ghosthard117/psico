@@ -9,6 +9,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 import { PrismicRichText } from "@prismicio/react";
+import { asText } from "@prismicio/client";
 
 export default async function Footer() {
   const client = createClient()
@@ -72,6 +73,7 @@ export default async function Footer() {
           <h2 className="font-bold text-base">Contacto</h2>
           {settings.data.contact.map(item => (
             <PrismicRichText
+              key={asText(item.item)}
               field={item.item}
               components={{
                 paragraph: ({ children }) => (

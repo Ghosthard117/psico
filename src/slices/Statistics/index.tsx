@@ -1,5 +1,5 @@
 import Bounded from "@/components/Bounded";
-import { Content } from "@prismicio/client";
+import { asText, Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 const components: JSXMapSerializer = {
@@ -28,8 +28,8 @@ const Statistics = ({ slice }: StatisticsProps): JSX.Element => {
 
     >
       <div className="flex md:flex-row flex-col justify-between md:justify-around items-center bg-gray-10 md:py-14 md:px-12 rounded-2xl md:rounded-[32px] gap-5 py-8 mx-16 md:mx-0">
-        {slice.primary.statistics.map((item, index) => (
-          <div key={index} className="flex items-center justify-center gap-1 flex-col max-w-min">
+        {slice.primary.statistics.map((item) => (
+          <div key={asText(item.heading)} className="flex items-center justify-center gap-1 flex-col max-w-min">
             <PrismicRichText
               field={item.heading}
               components={components}
