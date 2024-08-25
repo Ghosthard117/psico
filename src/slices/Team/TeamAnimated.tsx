@@ -69,7 +69,7 @@ export default function TeamAnimated({
 
     timeLine.fromTo(
       ".team__heading",
-      { x: 150 },
+      { x: -150 },
       {
         x: 0,
         duration: 1.5,
