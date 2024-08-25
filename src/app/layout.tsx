@@ -30,9 +30,10 @@ export default function RootLayout({
       className={clsx(lato.variable, montserratAlternates.variable)}
     >
       <body className="bg-white-10">
-        <LenisScroll />
         <Header />
-        {children}
+        <LenisScroll>
+          {children}
+        </LenisScroll>
         <Footer />
       </body>
     </html>
