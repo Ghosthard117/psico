@@ -1,7 +1,7 @@
 "use client"
 import { Content, isFilled } from "@prismicio/client";
 import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
@@ -35,6 +35,8 @@ export default function HeroAnimated({
   const container = useRef(null)
   const prefersReducedMotion = usePrefersReducedMotion()
   gsap.registerPlugin(useGSAP)
+
+  const memoizedSlice = useMemo(() => slice, [slice])
 
   useGSAP(() => {
     if (prefersReducedMotion) {
@@ -92,16 +94,16 @@ export default function HeroAnimated({
       <div
         className="flex flex-col justify-center max-w-4xl w-full gap-6"
       >
-        {isFilled.richText(slice.primary.heading) && (
+        {isFilled.richText(memoizedSlice.primary.heading) && (
           <PrismicRichText
-            field={slice.primary.heading}
+            field={memoizedSlice.primary.heading}
             components={components}
           />
         )}
 
-        {isFilled.richText(slice.primary.body) && (
+        {isFilled.richText(memoizedSlice.primary.body) && (
           <PrismicRichText
-            field={slice.primary.body}
+            field={memoizedSlice.primary.body}
             components={components}
           />
         )}
@@ -109,9 +111,9 @@ export default function HeroAnimated({
       <div
         className="hero__image flex items-center justify-center max-w-4xl w-full"
       >
-        {isFilled.image(slice.primary.image) && (
+        {isFilled.image(memoizedSlice.primary.image) && (
           <PrismicNextImage
-            field={slice.primary.image}
+            field={memoizedSlice.primary.image}
             className="rounded-3xl md:rounded-[32px] object-cover"
             priority
           />
